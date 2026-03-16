@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { useRef, useState } from "react";
 import ItemLista from "./itemLista";
 
@@ -49,12 +50,15 @@ function App() {
         />
 
         {/* Botões usam onClick, não onChange */}
-        <button
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 1 }}
+          onHoverStart={() => console.log("hover started!")}
           className="m-1 rounded bg-blue-600 p-1 text-white transition hover:bg-blue-400"
           onClick={() => adicionarElementoLista()}
         >
           Adicionar
-        </button>
+        </motion.button>
       </div>
 
       {listaMercado.length > 0 ? (

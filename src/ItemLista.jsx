@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 // Componente responsável por exibir um item da lista
 const ItemLista = ({ nome, listaMercado, setListaMercado }) => {
@@ -21,12 +22,15 @@ const ItemLista = ({ nome, listaMercado, setListaMercado }) => {
       <p>{nome}</p>
 
       {/* Botão para remover o item da lista */}
-      <button
+      <motion.button
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 1 }}
+        onHoverStart={() => console.log("hover started!")}
         className="m-1 rounded bg-red-600 p-1 text-white transition hover:bg-red-400"
         onClick={() => removerItemLista()}
       >
         Remover
-      </button>
+      </motion.button>
     </li>
   );
 };
